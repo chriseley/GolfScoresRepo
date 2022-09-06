@@ -1,27 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\chris\\source\\repos\\GolfScores\\GolfScores\\Shared\\GolfScores.Shared.csproj": {}
+    "/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Shared/GolfScores.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\chris\\source\\repos\\GolfScores\\GolfScores\\Shared\\GolfScores.Shared.csproj": {
+    "/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Shared/GolfScores.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chris\\source\\repos\\GolfScores\\GolfScores\\Shared\\GolfScores.Shared.csproj",
+        "projectUniqueName": "/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Shared/GolfScores.Shared.csproj",
         "projectName": "GolfScores.Shared",
-        "projectPath": "C:\\Users\\chris\\source\\repos\\GolfScores\\GolfScores\\Shared\\GolfScores.Shared.csproj",
-        "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chris\\source\\repos\\GolfScores\\GolfScores\\Shared\\obj\\",
+        "projectPath": "/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Shared/GolfScores.Shared.csproj",
+        "packagesPath": "/Users/chriseley/.nuget/packages/",
+        "outputPath": "/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Shared/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\chris\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/chriseley/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
         }
       }
     }

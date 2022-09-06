@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 
 
-[Route("api/[controller]")]
-[ApiController]
 public class GolfersController : ControllerBase
 {
     private readonly IGolferService _golferService;
@@ -20,7 +18,7 @@ public class GolfersController : ControllerBase
         return golfers.ToList();
     }
 
-    [HttpGet]
+    [HttpGet("{id}")]
     public async Task<IActionResult> Golfer(int id)
     {
         var golfer = await _golferService.GetGolferByIdAsync(id);
