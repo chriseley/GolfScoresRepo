@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>ddd606e2-4e1b-471b-9e97-15b380dad4b6</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

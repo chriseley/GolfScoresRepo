@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace GolfScores.Server.Models
+public class ApplicationUser : IdentityUser
 {
-    public class ApplicationUser : IdentityUser
-    {
-    }
 }

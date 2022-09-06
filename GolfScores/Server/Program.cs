@@ -1,5 +1,5 @@
+using Fluent.Infrastructure.FluentModel;
 using GolfScores.Server.Data;
-using GolfScores.Server.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +20,10 @@ builder.Services.AddIdentityServer()
 
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
+
+builder.Services.AddScoped<IGolferService, GolferService>();
+builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<IScoreService, ScoreService>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
