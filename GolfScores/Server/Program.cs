@@ -1,4 +1,4 @@
-using Fluent.Infrastructure.FluentModel;
+
 using GolfScores.Server.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.ResponseCompression;
