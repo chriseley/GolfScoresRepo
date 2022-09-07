@@ -1,6 +1,5 @@
 ﻿@page "/course/create"
 @inject HttpClient http
-@using GolfScores.Shared.Models.Course
 @inject NavigationManager navigation 
 
 
@@ -12,12 +11,45 @@
  }
 
 <div class="container">
-    <EditForm>
+    <EditForm Model="@model" OnValidSubmit="@HandleSubmit">
+
+     <DataAnnotationsValidator/>
+     <ValidationSummary/>
+
+     <div class="form-group">
+         <label>Name</label>
+         <InputText class="form-control" @bind-Value="model.Name" />
+     </div>
+
+     <div class="form-group">
+         <label>CourseRating</label>
+         <InputText class="form-control" @bind-Value="model.CourseRating" />
+     </div>
+
+     <button type="submit" class="btn btn-primary btn-block mt-5"></button>
+
 
     </EditForm>
 </div>
 
 @code {
+    private CourseCreate model = new();
 
+    private string errorMessage;
+
+    private async void HandleSubmit()
+    {
+        var createCo = await http.PostAsJsonAsync<CourseCreate>("/api/course", model);
+
+        if (createCo.IsSuccessStatusCode)
+        {
+            navigation.NavigateTo("/course");
+        }
+
+        else
+        {
+            errorMessage = "could not create course, please try again later";
+        }
+    }
 }
 

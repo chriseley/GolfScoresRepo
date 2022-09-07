@@ -11,45 +11,49 @@ build_property.EnableTrimAnalyzer = true
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = GolfScores.Client
 build_property.RootNamespace = GolfScores.Client
-build_property.ProjectDir = /Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client/
+build_property.ProjectDir = C:\Users\chris\source\repos\GolfScores\GolfScores\Client\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client
+build_property.MSBuildProjectDirectory = C:\Users\chris\source\repos\GolfScores\GolfScores\Client
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client/App.razor]
+[C:/Users/chris/source/repos/GolfScores/GolfScores/Client/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client/Pages/Authentication.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQXV0aGVudGljYXRpb24ucmF6b3I=
+[C:/Users/chris/source/repos/GolfScores/GolfScores/Client/Pages/Authentication.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVudGljYXRpb24ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client/Pages/Course/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291cnNlL0luZGV4LnJhem9y
+[C:/Users/chris/source/repos/GolfScores/GolfScores/Client/Pages/Course/Create.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlXENyZWF0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client/Pages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+[C:/Users/chris/source/repos/GolfScores/GolfScores/Client/Pages/Course/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlXEluZGV4LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client/Shared/LoginDisplay.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0xvZ2luRGlzcGxheS5yYXpvcg==
+[C:/Users/chris/source/repos/GolfScores/GolfScores/Client/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client/Shared/RedirectToLogin.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1JlZGlyZWN0VG9Mb2dpbi5yYXpvcg==
+[C:/Users/chris/source/repos/GolfScores/GolfScores/Client/Shared/LoginDisplay.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luRGlzcGxheS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client/_Imports.razor]
+[C:/Users/chris/source/repos/GolfScores/GolfScores/Client/Shared/RedirectToLogin.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFJlZGlyZWN0VG9Mb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/chris/source/repos/GolfScores/GolfScores/Client/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client/Shared/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-7chtc3hdrk
+[C:/Users/chris/source/repos/GolfScores/GolfScores/Client/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-wdcnvxtcuh
 
-[/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client/Shared/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-7mutgdavho
+[C:/Users/chris/source/repos/GolfScores/GolfScores/Client/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-5gpls5d4je

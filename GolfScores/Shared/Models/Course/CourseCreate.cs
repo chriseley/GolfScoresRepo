@@ -11,5 +11,5 @@ public class CourseCreate
     public string Name { get; set; }
 
     [Required]
-    public int CourseRating { get; set; }
+    public string CourseRating { get; set; }
 }
