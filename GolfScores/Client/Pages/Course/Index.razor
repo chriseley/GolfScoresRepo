@@ -1,0 +1,48 @@
+﻿@page "/Course/Index"
+@inject HttpClient Http
+@using GolfScores.Shared.Models
+<h3>Courses</h3>
+
+<a href="/course/create>Create a course"</a>
+
+@if (courses == null)
+{
+    <p><em> Loading... </em></p>
+}
+else
+{
+
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>CourseRating</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ListCourses course in courses)
+        {
+            <tr>
+                <td>@course.Id</td>
+                <td>@course.Name</td>
+                <td>@course.CourseRating</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private List<ListCourses> courses;
+}
+
+    protected override async Task OnInitializedAsync()
+    {
+
+    }
+
+    courses = await Http.GetFromJsonAsync<List<ListCourses>>("Course");
+
+

@@ -1,0 +1,23 @@
+﻿@page "/course/create"
+@inject HttpClient http
+@using GolfScores.Shared.Models.Course
+@inject NavigationManager navigation 
+
+
+<h3>Component1</h3>
+
+@if (errorMessage != null)
+ {
+    <h5> class ="text-danger">@errorMessage</h5>
+ }
+
+<div class="container">
+    <EditForm>
+
+    </EditForm>
+</div>
+
+@code {
+
+}
+

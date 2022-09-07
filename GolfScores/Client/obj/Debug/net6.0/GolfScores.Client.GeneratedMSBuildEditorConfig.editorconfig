@@ -26,12 +26,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQXV0aGVudGljYXRpb24ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client/Pages/FetchData.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
+[/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client/Pages/Course/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291cnNlL0luZGV4LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client/Pages/Index.razor]
@@ -44,10 +40,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client/Shared/RedirectToLogin.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1JlZGlyZWN0VG9Mb2dpbi5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client/Shared/SurveyPrompt.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/chriseley/Desktop/ElevenFifty/RedBadge/GolfScoresRepo/GolfScores/Client/_Imports.razor]

@@ -7,7 +7,9 @@
     <UserSecretsId>ddd606e2-4e1b-471b-9e97-15b380dad4b6</UserSecretsId>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(RunConfiguration)' == 'GolfScores' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'GolfScores' ">
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.8" PrivateAssets="all" />
@@ -19,4 +21,14 @@
     <ProjectReference Include="..\Shared\GolfScores.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Pages\Course\" />
+    <None Remove="Pages\Golfer\" />
+    <None Remove="Pages\Score\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\Course\" />
+    <Folder Include="Pages\Golfer\" />
+    <Folder Include="Pages\Score\" />
+  </ItemGroup>
 </Project>
