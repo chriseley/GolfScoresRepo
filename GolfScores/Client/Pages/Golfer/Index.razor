@@ -1,0 +1,46 @@
+﻿@page "/Golfer/"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@inject HttpClient http
+
+<h3>Golfers</h3>
+
+<a href="/golfer/create">Add a golfer</a>
+
+@if (_golfers == null)
+{
+    <p><em> Loading... </em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var golfer in _golfers)
+            {
+            <td><strong>@golfer.Name</strong></td>
+            <td>
+                <a href=@($"course/{golfer.Id}")>Detail</a>
+                <a href=@($"course/edit/{golfer.Id}")>Edit</a>
+                <a href=@($"course/delete/{golfer.Id}")>Delete</a>
+            </td>
+            }
+        </tbody>
+
+    </table>
+}
+
+@code {
+    private IEnumerable<ListGolfers> _golfers;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _golfers = await http.GetFromJsonAsync<List<ListGolfers>>("/api/golfer");
+    }
+}

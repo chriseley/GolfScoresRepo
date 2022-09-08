@@ -1,0 +1,72 @@
+﻿@page "/golfer/edit/{GolferId:int}"
+@using Microsoft.AspNetCore.Authorization
+@using System.Net.Http.Json
+@attribute [Authorize]
+@inject HttpClient http
+@inject NavigationManager navigation
+
+
+<h3>Edit Golfer</h3>
+
+@if (errorMessage != null)
+{
+    <h5> class ="text-danger">@errorMessage</h5>
+}
+
+<div class="container">
+    <EditForm Model="@model" OnValidSubmit="@HandleSubmit">
+
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group">
+            <label>Name</label>
+            <InputText class="form-control" @bind-Value="model.Name" />
+        </div>
+
+        <div class="form-group">
+            <label>Age</label>
+            <InputText class="form-control" @bind-Value="model.Age" />
+        </div>
+
+        <div class="form-group">
+            <label>HomeCourse</label>
+            <InputText class="form-control" @bind-Value="model.HomeCourse" />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block mt-5"></button>
+
+
+    </EditForm>
+</div>
+
+@code {
+    [Parameter]
+    public int GolferId { get; set; }
+
+    private GolferEdit model { get; set; }
+
+    private string ErrorMessage { get; set; }
+
+    private string errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        model = await http.GetFromJsonAsync<GolferEdit>($"/api/golfer/{GolferId}");
+    }
+
+    private async void HandleSubmit()
+    {
+        var createCo = await http.PostAsJsonAsync<GolferEdit>("/api/golfer", model);
+
+        if (createCo.IsSuccessStatusCode)
+        {
+            navigation.NavigateTo($"/golfer/{GolferId}");
+        }
+
+        else
+        {
+            errorMessage = "Could not edit golfer, please try again later";
+        }
+    }
+}

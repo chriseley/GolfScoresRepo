@@ -41,7 +41,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        _courses = await http.GetFromJsonAsync<List<ListCourses>>("/api/note");
+        _courses = await http.GetFromJsonAsync<List<ListCourses>>("/api/course");
     }
 }
 

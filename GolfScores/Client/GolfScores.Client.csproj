@@ -10,6 +10,10 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'GolfScores' ">
     <ExternalConsole>true</ExternalConsole>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Golfer\Edit.razor" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.8" PrivateAssets="all" />
@@ -27,7 +31,15 @@
     <None Remove="Pages\Score\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pages\Golfer\" />
     <Folder Include="Pages\Score\" />
+  </ItemGroup>
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Golfer\Edit.razor" />
+  </ItemGroup>
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Golfer\Edit.razor" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pages\Golfer\Edit.razor" />
   </ItemGroup>
 </Project>
