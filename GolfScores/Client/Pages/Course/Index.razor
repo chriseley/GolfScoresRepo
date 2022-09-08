@@ -1,46 +1,48 @@
-﻿@page "/Course/Index"
-@inject HttpClient Http
+﻿@page "/Course/"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@inject HttpClient http
 
 <h3>Courses</h3>
 
-<a href="/course/create>Create a course"</a>
+<a href="/course/create">Create a course</a>
 
-@if (courses == null)
+@if (_courses == null)
 {
     <p><em> Loading... </em></p>
 }
 else
 {
-
-}
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>CourseRating</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (ListCourses course in courses)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <td>@course.Id</td>
-                <td>@course.Name</td>
-                <td>@course.CourseRating</td>
+                <th>Id</th>
+                <th>Name</th>
+                <th>CourseRating</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var course in _courses)
+            {
+            <td><strong>@course.Name</strong></td>
+            <td>
+                <a href=@($"course/{course.Id}")>Detail</a>
+                <a href=@($"course/edit/{course.Id}")>Edit</a>
+                <a href=@($"course/delete/{course.Id}")>Delete</a>
+            </td>
+            }
+        </tbody>
+     
+    </table>
+}
 
 @code {
-    private List<ListCourses> courses;
-}
+    private IEnumerable<ListCourses> _courses;
 
     protected override async Task OnInitializedAsync()
     {
-
+        _courses = await http.GetFromJsonAsync<List<ListCourses>>("/api/note");
     }
+}
 
-    courses = await Http.GetFromJsonAsync<List<ListCourses>>("Course")
+  

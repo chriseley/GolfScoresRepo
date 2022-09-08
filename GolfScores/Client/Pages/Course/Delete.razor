@@ -1,0 +1,65 @@
+﻿@page "/course/delete/{CourseId:int}"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@inject HttpClient http
+@inject NavigationManager navigation
+
+<h3>Delete Course #@CourseId</h3>
+
+@if(Message != null)
+{
+    <h2 class="text-danger">@Message</h2>
+}
+
+@if (Course != null)
+{
+    <div class="container">
+        <div class="card">
+            <div class=" card-header d-flex justify-content-between">
+                <span>Course #@Course.Id</span>
+                <span class="text-muted"><strong>@Course.Name</strong></span>
+            </div>
+            <div class="card-body">
+                <h4 class="card-text">@Course.CourseRating</h4>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-3">
+            <div class="text-center justify-content-between w-50">
+                <a href=@("$/course/edit/{CourseId}") class="btn btn-outline-primary">Back to Index</a>
+                <a href="#" @onclick="HandleClick" class="btn btn-danger text-white">Delete Course</a>
+                <hr />
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <p>Loading...</p>
+}
+
+@code {
+    [Parameter]
+    public int CourseId { get; set; }
+    public CourseDetail Course { get; set; }
+    public string Message { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Course = await http.GetFromJsonAsync<CourseDetail>($"/api/course/{CourseId}");
+    }
+
+    private async void HandleClick()
+    {
+        var deleteCo = await http.DeleteAsync($"/api/course/{CourseId}");
+
+        if(deleteCo.IsSuccessStatusCode)
+        {
+            navigation.NavigateTo("/course");
+        }
+
+        else
+        {
+            Message = "Falied to delete course";
+        }
+    }
+}

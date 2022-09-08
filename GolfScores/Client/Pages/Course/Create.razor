@@ -1,4 +1,6 @@
 ﻿@page "/course/create"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
 @inject HttpClient http
 @inject NavigationManager navigation 
 

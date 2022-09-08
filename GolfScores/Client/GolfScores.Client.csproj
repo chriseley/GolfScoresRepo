@@ -27,7 +27,6 @@
     <None Remove="Pages\Score\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pages\Course\" />
     <Folder Include="Pages\Golfer\" />
     <Folder Include="Pages\Score\" />
   </ItemGroup>

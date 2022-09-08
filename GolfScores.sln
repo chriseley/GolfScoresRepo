@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GolfScores.Server", "GolfScores\Server\GolfScores.Server.csproj", "{E53B1C01-9290-47EE-B5B6-111FF3FF426F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GolfScores.Server", "GolfScores\Server\GolfScores.Server.csproj", "{E53B1C01-9290-47EE-B5B6-111FF3FF426F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GolfScores.Client", "GolfScores\Client\GolfScores.Client.csproj", "{E2AC1BC6-D97A-46FE-A7FA-D4924EFDF4FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GolfScores.Client", "GolfScores\Client\GolfScores.Client.csproj", "{E2AC1BC6-D97A-46FE-A7FA-D4924EFDF4FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GolfScores.Shared", "GolfScores\Shared\GolfScores.Shared.csproj", "{2471099B-5EF1-4BCC-80A9-2DD7A6F21812}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GolfScores.Shared", "GolfScores\Shared\GolfScores.Shared.csproj", "{2471099B-5EF1-4BCC-80A9-2DD7A6F21812}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

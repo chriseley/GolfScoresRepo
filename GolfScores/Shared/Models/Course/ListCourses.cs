@@ -9,5 +9,5 @@ public class ListCourses
 {
     public int Id { get; set; }
     public string Name { get; set; }
-    public int CourseRating { get; set; }
+    public string CourseRating { get; set; }
 }

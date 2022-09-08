@@ -1,0 +1,66 @@
+﻿@page "/course/edit/{CourseId:int}"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@inject HttpClient http
+@inject NavigationManager navigation
+
+
+<h3>Edit Course</h3>
+
+@if (errorMessage != null)
+{
+    <h5> class ="text-danger">@errorMessage</h5>
+}
+
+<div class="container">
+    <EditForm Model="@model" OnValidSubmit="@HandleSubmit">
+
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group">
+            <label>Name</label>
+            <InputText class="form-control" @bind-Value="model.Name" />
+        </div>
+
+        <div class="form-group">
+            <label>CourseRating</label>
+            <InputText class="form-control" @bind-Value="model.CourseRating" />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block mt-5"></button>
+
+
+    </EditForm>
+</div>
+
+@code {
+    [Parameter]
+    public int CourseId { get; set; }
+
+    private CourseEdit model { get; set; }
+
+    private string ErrorMessage { get; set; }
+
+    private string errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        model = await http.GetFromJsonAsync<CourseEdit>($"/api/course/{CourseId}");
+    }
+
+    private async void HandleSubmit()
+    {
+        var createCo = await http.PostAsJsonAsync<CourseEdit>("/api/course", model);
+
+        if (createCo.IsSuccessStatusCode)
+        {
+            navigation.NavigateTo($"/course/{CourseId}");
+        }
+
+        else
+        {
+            errorMessage = "Could not edit course, please try again later";
+        }
+    }
+}
