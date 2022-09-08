@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 public class Score
 {
     [ForeignKey(nameof(Golfer))]
-    public int GolferId { get; set; }
+    public string GolferId { get; set; }
 
     [ForeignKey(nameof(Course))]
-    public int CourseId { get; set; }
+    public string CourseId { get; set; }
 
     [Required]
-    public int NewScore { get; set; }
+    public string NewScore { get; set; }
 }
