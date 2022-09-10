@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 
 
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class CoursesController : ControllerBase
     {
@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
         _courseService = courseService;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> GetAllCourses()
     {
         var courses = await _courseService.GetAllCoursesAsync();
 
@@ -20,7 +20,7 @@ using Microsoft.AspNetCore.Mvc;
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> Course(int id)
+    public async Task<IActionResult> CourseInfo(int id)
     {
         var course = await _courseService.GetCourseByIdAsync(id);
 
@@ -40,7 +40,7 @@ using Microsoft.AspNetCore.Mvc;
         return UnprocessableEntity();
     }
 
-    [HttpPut("edit/{id}")]
+    [HttpPut("{id}")]
     public async Task<IActionResult> Edit(int id, CourseEdit model)
     {
         if (model == null || !ModelState.IsValid) return BadRequest();

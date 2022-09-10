@@ -8,12 +8,12 @@ public class Score
     [Key]
     public int Id { get; set; }
 
-    [ForeignKey(nameof(Golfer))]
     public int GolferId { get; set; }
+    [ForeignKey(nameof(GolferId))]
     public virtual Golfer Golfer { get; set; }
 
-    [ForeignKey(nameof(Course))]
     public int CourseId { get; set; }
+    [ForeignKey(nameof(CourseId))]
     public virtual Course Course { get; set; }
 
     [Required]

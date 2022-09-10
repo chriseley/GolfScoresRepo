@@ -40,17 +40,17 @@ else
 @code {
     [Parameter]
     public int ScoreId { get; set; }
-    public ScoreDetail Score { get; set; }
+    public ScoreDetail Score { get; set; } = new ScoreDetail();
     public string Message { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        Score = await http.GetFromJsonAsync<ScoreDetail>($"/api/score/{ScoreId}");
+        Score = await http.GetFromJsonAsync<ScoreDetail>($"api/score/ScoreInfo/{ScoreId}");
     }
 
     private async void HandleClick()
     {
-        var deleteSco = await http.DeleteAsync($"/api/golfer/{ScoreId}");
+        var deleteSco = await http.DeleteAsync($"api/score/Delete/{ScoreId}");
 
         if (deleteSco.IsSuccessStatusCode)
         {

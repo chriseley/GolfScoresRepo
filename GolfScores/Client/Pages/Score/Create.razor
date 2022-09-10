@@ -9,7 +9,7 @@
 
 @if (errorMessage != null)
 {
-    <h5> class ="text-danger">@errorMessage</h5>
+    <h5 class ="text-danger">@errorMessage</h5>
 }
 
 <div class="container">
@@ -20,12 +20,12 @@
 
         <div class="form-group">
             <label>GolferId</label>
-            <InputText class="form-control" @bind-Value="model.GolferId" />
+            <InputNumber class="form-control" @bind-Value="model.GolferId" />
         </div>
 
         <div class="form-group">
             <label>CourseId</label>
-            <InputText class="form-control" @bind-Value="model.CourseId" />
+            <InputNumber class="form-control" @bind-Value="model.CourseId" />
         </div>
 
         <div class="form-group">
@@ -46,7 +46,7 @@
 
     private async void HandleSubmit()
     {
-        var createSco = await http.PostAsJsonAsync<ScoreCreate>("/api/score", model);
+        var createSco = await http.PostAsJsonAsync<ScoreCreate>("api/score/PostScore", model);
 
         if (createSco.IsSuccessStatusCode)
         {

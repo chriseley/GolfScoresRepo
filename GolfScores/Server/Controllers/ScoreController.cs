@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-[Route("api/[controller]")]
+[Route("api/[controller]/[action]")]
 [ApiController]
 public class ScoreController : ControllerBase
 {
@@ -13,22 +13,23 @@ public class ScoreController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<List<ListScores>> Index()
+    public async Task<List<ListScores>> GetAllScores()
     {
         var scores = await _scoreService.GetAllScoresAsync();
         return scores.ToList();
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(ScoreCreate model)
+    public async Task<IActionResult> PostScore(ScoreCreate model)
     {
-        if (model == null) return BadRequest();
+        if (model == null || !ModelState.IsValid) return BadRequest();
 
         bool wasSuccessful = await _scoreService.CreateScoreAsync(model);
 
         if (wasSuccessful) return Ok();
-        else return UnprocessableEntity();
+        return UnprocessableEntity();
     }
+
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
@@ -45,7 +46,7 @@ public class ScoreController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> Score(int id)
+    public async Task<IActionResult> ScoreInfo(int id)
     {
         var score = await _scoreService.GetScoreByGolferIdAsync(id);
 

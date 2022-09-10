@@ -70,16 +70,25 @@ public class CourseService : ICourseService
 
     public async Task<bool> UpdateCourseAsync(CourseEdit model)
     {
-        if (model == null) return false;
+        try
+        {
+            if (model == null) return false;
 
-        var entity = await _context.Courses.FindAsync(model.Id);
+            var entity = await _context.Courses.FindAsync(model.Id);
 
-        if (entity == null) return false;
+            if (entity == null) return false;
 
-        entity.Name = model.Name;
-        entity.CourseRating = model.CourseRating;
+            entity.Name = model.Name;
+            entity.CourseRating = model.CourseRating;
 
-        return await _context.SaveChangesAsync() == 1;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        catch (Exception ex)
+        {
+
+            throw new Exception (ex.Message);
+        }
        
     }
 }

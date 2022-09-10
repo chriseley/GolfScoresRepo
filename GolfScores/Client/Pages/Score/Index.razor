@@ -16,6 +16,7 @@ else
     <table class="table">
         <thead>
             <tr>
+                <th>ScoreId</th>
                 <th>GolferId</th>
                 <th>CourseId</th>
                 <th>Score</th>
@@ -24,10 +25,16 @@ else
         <tbody>
             @foreach (var score in _scores)
             {
-            <td><strong>@score.Score</strong></td>
-            <td>
-                <a href=@($"course/delete/{score.Id}")>Delete</a>
-            </td>
+                <tr>
+                    <td><strong>@score.Id</strong></td>
+                    <td><strong>@score.GolferId</strong></td>
+                    <td><strong>@score.CourseId</strong></td>
+                    <td><strong>@score.Score</strong></td>
+                    <td>
+                        <a href=@($"score/delete/{score.Id}")>Delete</a>
+                    </td>
+                </tr>
+
             }
         </tbody>
 
@@ -35,10 +42,10 @@ else
 }
 
 @code {
-    private IEnumerable<ListScores> _scores;
+    private IEnumerable<ListScores> _scores=new List<ListScores>();
 
     protected override async Task OnInitializedAsync()
     {
-        _scores = await http.GetFromJsonAsync<List<ListScores>>("/api/score");
+        _scores = await http.GetFromJsonAsync<List<ListScores>>("api/score/GetAllScores");
     }
 }

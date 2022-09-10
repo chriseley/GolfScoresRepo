@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 public class ScoreCreate
 {
     [Required]
-    public string GolferId { get; set; }
+    public int GolferId { get; set; }
 
     [Required]
-    public string CourseId { get; set; }
+    public int CourseId { get; set; }
 
     [Required]
     public string Score { get; set; }

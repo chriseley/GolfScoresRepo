@@ -11,16 +11,28 @@ public class ScoreService : IScoreService
 
     public async Task<bool> CreateScoreAsync(ScoreCreate model)
     {
-        if (model == null) return false;
-
-        var scoreEntity = new Score
+        try
         {
-            NewScore = model.Score
-        };
+            if (model == null) return false;
 
-        _context.Scores.Add(scoreEntity);
+            var scoreEntity = new Score
+            {
+                GolferId = model.GolferId,
+                CourseId = model.CourseId,
+                NewScore = model.Score
+            };
 
-        return await _context.SaveChangesAsync() == 1;
+            await _context.Scores.AddAsync(scoreEntity);
+
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception ex) 
+        {
+
+            throw new Exception(ex.Message);
+
+        }
+        return true;
     }
 
     public async Task<bool> DeleteScoreAsync(int scoreId)
@@ -42,6 +54,7 @@ public class ScoreService : IScoreService
                 .Select(entity =>
                     new ListScores
                     {
+                        Id = entity.Id,
                         CourseId = entity.CourseId,
                         GolferId = entity.GolferId,
                         Score = entity.NewScore
@@ -50,8 +63,18 @@ public class ScoreService : IScoreService
         return await scoreQuery.ToListAsync();
     }
 
-    public Task<ScoreDetail> GetScoreByGolferIdAsync(int golferId)
+    public async Task<ScoreDetail> GetScoreByGolferIdAsync(int golferId)
     {
-        throw new NotImplementedException();
+        var scoreQuery = await _context.Scores.FindAsync(golferId);
+
+        if (scoreQuery == null) return null;
+
+        return new ScoreDetail() {
+        Id = scoreQuery.Id,
+        CourseId = scoreQuery.CourseId,
+        GolferId = scoreQuery.GolferId,
+        Score = scoreQuery.NewScore
+        };
+
     }
 }

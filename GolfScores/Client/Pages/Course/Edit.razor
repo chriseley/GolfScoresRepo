@@ -35,25 +35,25 @@
 </div>
 
 @code {
+    
+    private CourseEdit model = new();
+
     [Parameter]
     public int CourseId { get; set; }
 
-    private CourseEdit model { get; set; }
+    private string errorMessage { get; set; }
 
-    private string ErrorMessage { get; set; }
-
-    private string errorMessage;
 
     protected override async Task OnInitializedAsync()
     {
-        model = await http.GetFromJsonAsync<CourseEdit>($"api/courses/{CourseId}");
+        model = await http.GetFromJsonAsync<CourseEdit>($"api/courses/CourseInfo/{CourseId}");
     }
 
     private async void HandleSubmit()
     {
-        var createCo = await http.PostAsJsonAsync<CourseEdit>("api/courses", model);
+        var editCo = await http.PutAsJsonAsync<CourseEdit>($"api/courses/edit/{CourseId}", model);
 
-        if (createCo.IsSuccessStatusCode)
+        if (editCo.IsSuccessStatusCode)
         {
             navigation.NavigateTo($"/course/{CourseId}");
         }

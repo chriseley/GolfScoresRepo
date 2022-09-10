@@ -8,6 +8,6 @@ public class ScoreDetail
 {
     public int Id { get; set; }
     public string Score { get; set; }
-    public string GolferId { get; set; }
-    public string CourseId { get; set; } 
+    public int GolferId { get; set; }
+    public int CourseId { get; set; } 
 }

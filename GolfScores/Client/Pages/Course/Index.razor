@@ -24,6 +24,7 @@ else
         <tbody>
             @foreach (var course in _courses)
             {
+            <tr>
             <td><strong>@course.Id</strong></td>
             <td><strong>@course.Name</strong></td>
             <td><strong>@course.CourseRating</strong></td>
@@ -32,6 +33,7 @@ else
                 <a href=@($"course/edit/{course.Id}")>Edit</a>
                 <a href=@($"course/delete/{course.Id}")>Delete</a>
             </td>
+            </tr>
             }
         </tbody>
      
@@ -43,7 +45,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        _courses = await http.GetFromJsonAsync<List<ListCourses>>("api/courses");
+        _courses = await http.GetFromJsonAsync<List<ListCourses>>("api/courses/GetAllCourses");
     }
 }
 
