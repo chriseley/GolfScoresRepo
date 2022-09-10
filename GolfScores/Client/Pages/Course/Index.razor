@@ -24,7 +24,9 @@ else
         <tbody>
             @foreach (var course in _courses)
             {
+            <td><strong>@course.Id</strong></td>
             <td><strong>@course.Name</strong></td>
+            <td><strong>@course.CourseRating</strong></td>
             <td>
                 <a href=@($"course/{course.Id}")>Detail</a>
                 <a href=@($"course/edit/{course.Id}")>Edit</a>
@@ -37,11 +39,11 @@ else
 }
 
 @code {
-    private IEnumerable<ListCourses> _courses;
+    private IEnumerable<ListCourses> _courses = new List<ListCourses>();
 
     protected override async Task OnInitializedAsync()
     {
-        _courses = await http.GetFromJsonAsync<List<ListCourses>>("/api/course");
+        _courses = await http.GetFromJsonAsync<List<ListCourses>>("api/courses");
     }
 }
 

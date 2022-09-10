@@ -44,6 +44,7 @@ public class CourseService : ICourseService
                     {
                         Id = entity.Id,
                         Name = entity.Name,
+                        CourseRating = entity.CourseRating
                     });
 
         return await courseQuery.ToListAsync();

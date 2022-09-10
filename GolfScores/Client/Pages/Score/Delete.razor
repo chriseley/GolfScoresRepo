@@ -1,32 +1,32 @@
-﻿@page "/golfer/delete/{GolferId:int}"
+﻿@page "/score/delete/{ScoreId:int}"
 @using Microsoft.AspNetCore.Authorization
 @attribute [Authorize]
 @inject HttpClient http
 @inject NavigationManager navigation
 
-<h3>Delete Golfer #@GolferId</h3>
+<h3>Delete Score #@ScoreId</h3>
 
 @if (Message != null)
 {
     <h2 class="text-danger">@Message</h2>
 }
 
-@if (Golfer != null)
+@if (Score != null)
 {
     <div class="container">
         <div class="card">
             <div class=" card-header d-flex justify-content-between">
-                <span>Golfer #@Golfer.Id</span>
-                <span class="text-muted"><strong>@Golfer.Name</strong></span>
+                <span>Score #@Score.Id</span>
+                <span class="text-muted"><strong>@Score.GolferId</strong></span>
             </div>
             <div class="card-body">
-                <h4 class="card-text">@Golfer.Age</h4>
+                <h4 class="card-text">@Score.Score</h4>
             </div>
         </div>
         <div class="d-flex justify-content-center mt-3">
             <div class="text-center justify-content-between w-50">
-                <a href=@("$/golfer/edit/{GolferId}") class="btn btn-outline-primary">Back to Index</a>
-                <a href="#" @onclick="HandleClick" class="btn btn-danger text-white">Delete Golfer</a>
+                <a href=@("$/score/edit/{ScoreId}") class="btn btn-outline-primary">Back to Index</a>
+                <a href="#" @onclick="HandleClick" class="btn btn-danger text-white">Delete Score</a>
                 <hr />
             </div>
         </div>
@@ -39,27 +39,27 @@ else
 
 @code {
     [Parameter]
-    public int GolferId { get; set; }
-    public GolferDetail Golfer { get; set; }
+    public int ScoreId { get; set; }
+    public ScoreDetail Score { get; set; }
     public string Message { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        Golfer = await http.GetFromJsonAsync<GolferDetail>($"api/golfers/{GolferId}");
+        Score = await http.GetFromJsonAsync<ScoreDetail>($"/api/score/{ScoreId}");
     }
 
     private async void HandleClick()
     {
-        var deleteGo = await http.DeleteAsync($"api/golfers/{GolferId}");
+        var deleteSco = await http.DeleteAsync($"/api/golfer/{ScoreId}");
 
-        if (deleteGo.IsSuccessStatusCode)
+        if (deleteSco.IsSuccessStatusCode)
         {
-            navigation.NavigateTo("/golfer");
+            navigation.NavigateTo("/score");
         }
 
         else
         {
-            Message = "Falied to delete golfer";
+            Message = "Falied to delete Score";
         }
     }
 }

@@ -5,5 +5,4 @@
     Task<GolferDetail> GetGolferByIdAsync(int golferId);
     Task<bool> UpdateGolferAsync(GolferEdit model);
     Task<bool> DeleteGolferAsync(int golferId);
-    void SetGolferId(string golferId);
 }

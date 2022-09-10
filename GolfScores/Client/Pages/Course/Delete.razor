@@ -45,12 +45,12 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        Course = await http.GetFromJsonAsync<CourseDetail>($"/api/course/{CourseId}");
+        Course = await http.GetFromJsonAsync<CourseDetail>($"api/courses/{CourseId}");
     }
 
     private async void HandleClick()
     {
-        var deleteCo = await http.DeleteAsync($"/api/course/{CourseId}");
+        var deleteCo = await http.DeleteAsync($"api/courses/{CourseId}");
 
         if(deleteCo.IsSuccessStatusCode)
         {

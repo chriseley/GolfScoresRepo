@@ -39,6 +39,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        Course = await http.GetFromJsonAsync<CourseDetail>($"/api/course/{CourseId}");
+        Course = await http.GetFromJsonAsync<CourseDetail>($"api/courses/{CourseId}");
     }
 }

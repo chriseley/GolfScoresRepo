@@ -1,0 +1,44 @@
+﻿@page "/Score/"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@inject HttpClient http
+
+<h3>Scores</h3>
+
+<a href="/score/create">Post a score</a>
+
+@if (_scores == null)
+{
+    <p><em> Loading... </em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>GolferId</th>
+                <th>CourseId</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var score in _scores)
+            {
+            <td><strong>@score.Score</strong></td>
+            <td>
+                <a href=@($"course/delete/{score.Id}")>Delete</a>
+            </td>
+            }
+        </tbody>
+
+    </table>
+}
+
+@code {
+    private IEnumerable<ListScores> _scores;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _scores = await http.GetFromJsonAsync<List<ListScores>>("/api/score");
+    }
+}

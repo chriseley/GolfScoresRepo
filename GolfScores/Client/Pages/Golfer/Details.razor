@@ -10,7 +10,7 @@
     <div class="container">
         <div class="card">
             <div class=" card-header d-flex justify-content-between">
-                <span>Course #@Golfer.Id</span>
+                <span>Golfer #@Golfer.Id</span>
                 <span class="text-muted"><strong>@Golfer.Name</strong></span>
             </div>
             <div class="card-body">
@@ -39,6 +39,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        Golfer = await http.GetFromJsonAsync<GolferDetail>($"/api/golfer/{GolferId}");
+        Golfer = await http.GetFromJsonAsync<GolferDetail>($"api/golfers/{GolferId}");
     }
 }

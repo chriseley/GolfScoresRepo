@@ -2,26 +2,33 @@
 
 public class GolferService : IGolferService
 {
-    async Task<bool> CreateGolferAsync(GolferCreate model)
+    private readonly ApplicationDbContext _context;
+
+    public GolferService(ApplicationDbContext context)
     {
+        _context = context;
+    }
+
+    public async Task<bool> CreateGolferAsync(GolferCreate model)
+    {
+        if (model == null) return false;
+
         var golferEntity = new Golfer
         {
             Name = model.Name,
             Age = model.Age,
             HomeCourse = model.HomeCourse
         };
-        
-        _context.Golfers.Add(golferEntity);
-        var numberOfChanges = await _context.SaveChangesAsync();
 
-        return numberOfChanges == 1;
+        _context.Golfers.Add(golferEntity);
+
+        return await _context.SaveChangesAsync() == 1;
     }
 
     public async Task<bool> DeleteGolferAsync(int golferId)
     {
         var entity = await _context.Golfers.FindAsync(golferId);
-        if (entity == null)
-            return false;
+        if (entity == null) return false;
 
         _context.Golfers.Remove(entity);
         return await _context.SaveChangesAsync() == 1; 
@@ -37,6 +44,7 @@ public class GolferService : IGolferService
                  {
                      Id = entity.Id,
                      Name = entity.Name,
+                     HomeCourse  = entity.HomeCourse,
                  });
         return await golferQuery.ToListAsync();
     }
@@ -74,19 +82,4 @@ public class GolferService : IGolferService
         return await _context.SaveChangesAsync() == 1;
     }
 
-    private readonly ApplicationDbContext _context;
-    
-    public GolferService(ApplicationDbContext context)
-    {
-        _context = context;
-    }
-
-    private string _golferId;
-
-    public void SetGolferId(string golferId) => _golferId = golferId;
-
-    Task<bool> IGolferService.CreateGolferAsync(GolferCreate model)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -19,17 +19,32 @@ else
                 <th>Id</th>
                 <th>Name</th>
                 <th>Age</th>
+                <th>HomeCourse</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var golfer in _golfers)
+
+            @if (_golfers != null)
             {
-            <td><strong>@golfer.Name</strong></td>
-            <td>
-                <a href=@($"course/{golfer.Id}")>Detail</a>
-                <a href=@($"course/edit/{golfer.Id}")>Edit</a>
-                <a href=@($"course/delete/{golfer.Id}")>Delete</a>
-            </td>
+                @foreach (var golfer in _golfers)
+                {
+                    <tr>
+                        <td><strong>@golfer.Id</strong></td>
+                        <td><strong>@golfer.Name</strong></td>
+                        <td><strong>@golfer.Age</strong></td>
+                        <td><strong>@golfer.HomeCourse</strong></td>
+                        <td>
+                            <a href=@($"golfers/{golfer.Id}")>Detail</a>
+                            <a href=@($"golfers/edit/{golfer.Id}")>Edit</a>
+                            <a href=@($"golfers/delete/{golfer.Id}")>Delete</a>
+                        </td>
+                    </tr>
+                }
+
+            }
+            else
+            {
+                <p>There are no availble golfers.</p>
             }
         </tbody>
 
@@ -37,10 +52,10 @@ else
 }
 
 @code {
-    private IEnumerable<ListGolfers> _golfers;
+    private IEnumerable<ListGolfers> _golfers = new List<ListGolfers>();
 
     protected override async Task OnInitializedAsync()
     {
-        _golfers = await http.GetFromJsonAsync<List<ListGolfers>>("/api/golfer");
+        _golfers = await http.GetFromJsonAsync<List<ListGolfers>>("api/golfers/GetGolfers");
     }
 }

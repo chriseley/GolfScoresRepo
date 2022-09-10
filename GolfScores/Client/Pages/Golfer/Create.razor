@@ -9,7 +9,7 @@
 
 @if (errorMessage != null)
 {
-    <h5> class ="text-danger">@errorMessage</h5>
+    <h5 class="text-danger">@errorMessage</h5>
 }
 
 <div class="container">
@@ -26,10 +26,13 @@
         <div class="form-group">
             <label>Age</label>
             <InputText class="form-control" @bind-Value="model.Age" />
+        </div> 
+        <div class="form-group">
+            <label>HomeCourse</label>
+            <InputText class="form-control" @bind-Value="model.HomeCourse" />   
         </div>
 
         <button type="submit" class="btn btn-primary btn-block mt-5"></button>
-
 
     </EditForm>
 </div>
@@ -41,9 +44,10 @@
 
     private async void HandleSubmit()
     {
-        var createCo = await http.PostAsJsonAsync<GolferCreate>("/api/golfer", model);
+        
+        var createGo = await http.PostAsJsonAsync<GolferCreate>("api/golfers/AddGolfer", model);
 
-        if (createCo.IsSuccessStatusCode)
+        if (createGo.IsSuccessStatusCode)
         {
             navigation.NavigateTo("/golfer");
         }

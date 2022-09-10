@@ -1,40 +1,44 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
+[ApiController]
+[Route("api/[controller]/[action]")]
 
 public class GolfersController : ControllerBase
 {
     private readonly IGolferService _golferService;
-
     public GolfersController(IGolferService golferService)
     {
         _golferService = golferService;
     }
 
     [HttpGet]
-    public async Task<List<ListGolfers>> Index()
+    public async Task<IActionResult> GetGolfers()
     {
         var golfers = await _golferService.GetAllGolfersAsync();
-        return golfers.ToList();
+
+        return Ok(golfers);
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> Golfer(int id)
     {
         var golfer = await _golferService.GetGolferByIdAsync(id);
+
         if (golfer == null) return NotFound();
+
         return Ok(golfer);
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(GolferCreate model)
+    public async Task<IActionResult> AddGolfer(GolferCreate model)
     {
-        if (model == null) return BadRequest();
+        if (model == null || !ModelState.IsValid) return BadRequest();
 
-        bool wasSuccessful = await _golferService.CreateGolferAsync(model);
+        bool wasSuccesssful = await _golferService.CreateGolferAsync(model);
 
-        if (wasSuccessful) return Ok();
-        else return UnprocessableEntity();
+        if (wasSuccesssful) return Ok();
+        return UnprocessableEntity();
     }
 
     [HttpPut("edit/{id}")]
@@ -54,9 +58,9 @@ public class GolfersController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        var golfer = await _golferService.GetGolferByIdAsync(id);
+        var course = await _golferService.GetGolferByIdAsync(id);
 
-        if (golfer == null) return NotFound();
+        if (course == null) return NotFound();
 
         bool wasSuccessful = await _golferService.DeleteGolferAsync(id);
 
@@ -64,5 +68,7 @@ public class GolfersController : ControllerBase
 
         return Ok();
     }
+
+
 }
 

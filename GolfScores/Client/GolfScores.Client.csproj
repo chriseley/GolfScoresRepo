@@ -31,9 +31,6 @@
     <None Remove="Pages\Score\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pages\Score\" />
-  </ItemGroup>
-  <ItemGroup>
     <UpToDateCheckInput Remove="Pages\Golfer\Edit.razor" />
   </ItemGroup>
   <ItemGroup>
@@ -41,5 +38,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Pages\Golfer\Edit.razor" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\Score\" />
   </ItemGroup>
 </Project>

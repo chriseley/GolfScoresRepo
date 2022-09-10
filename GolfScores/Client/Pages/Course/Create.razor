@@ -5,11 +5,11 @@
 @inject NavigationManager navigation 
 
 
-<h3>Component1</h3>
+<h3>Add Course</h3>
 
 @if (errorMessage != null)
  {
-    <h5> class ="text-danger">@errorMessage</h5>
+    <h5 class ="text-danger">@errorMessage</h5>
  }
 
 <div class="container">
@@ -41,7 +41,7 @@
 
     private async void HandleSubmit()
     {
-        var createCo = await http.PostAsJsonAsync<CourseCreate>("/api/course", model);
+        var createCo = await http.PostAsJsonAsync<CourseCreate>("api/courses", model);
 
         if (createCo.IsSuccessStatusCode)
         {

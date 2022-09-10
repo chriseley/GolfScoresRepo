@@ -52,12 +52,12 @@
 
     protected override async Task OnInitializedAsync()
     {
-        model = await http.GetFromJsonAsync<GolferEdit>($"/api/golfer/{GolferId}");
+        model = await http.GetFromJsonAsync<GolferEdit>($"api/golfers/{GolferId}");
     }
 
     private async void HandleSubmit()
     {
-        var createCo = await http.PostAsJsonAsync<GolferEdit>("/api/golfer", model);
+        var createCo = await http.PostAsJsonAsync<GolferEdit>("api/golfers", model);
 
         if (createCo.IsSuccessStatusCode)
         {

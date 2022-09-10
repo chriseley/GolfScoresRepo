@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 {
     [Required]
     public string Name { get; set; }
+    [Required]
     public string Age { get; set; }
+    [Required]
     public string HomeCourse { get; set; }
 }

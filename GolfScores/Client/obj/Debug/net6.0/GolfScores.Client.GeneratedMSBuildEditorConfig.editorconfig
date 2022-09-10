@@ -54,8 +54,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR29sZmVyXERlbGV0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chris/source/repos/GolfScores/GolfScores/Client/Pages/Golfer/Detail.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR29sZmVyXERldGFpbC5yYXpvcg==
+[C:/Users/chris/source/repos/GolfScores/GolfScores/Client/Pages/Golfer/Details.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR29sZmVyXERldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/chris/source/repos/GolfScores/GolfScores/Client/Pages/Golfer/Index.razor]
@@ -64,6 +64,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/chris/source/repos/GolfScores/GolfScores/Client/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/chris/source/repos/GolfScores/GolfScores/Client/Pages/Score/Create.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NvcmVcQ3JlYXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/chris/source/repos/GolfScores/GolfScores/Client/Pages/Score/Delete.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NvcmVcRGVsZXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/chris/source/repos/GolfScores/GolfScores/Client/Pages/Score/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NvcmVcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/chris/source/repos/GolfScores/GolfScores/Client/Shared/LoginDisplay.razor]
